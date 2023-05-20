@@ -1,0 +1,47 @@
+{
+  "name": "Real Track Lap",
+  "version": "1.0",
+  "author": "Oscar Muñoz Ferriz",
+  "description": "Attempts, Time Spend",
+  "type": "feature",
+  "usage": "workout",
+  "modificationTime": 1684534299, 
+  "in": [
+    {
+      "name": "Duration",
+      "source": "/Activity/Lap/-2/Duration/Current",
+      "type": "subscribe"
+    },
+    {
+      "name": "Distance",
+      "source": "/Activity/Current/Distance",
+      "type": "subscribe"
+    }
+  ],
+  "out": [
+    {
+      "name": "currentLap"
+    },
+    {
+      "name": "fastLap"
+    },
+    {
+      "name": "fastLapDuration"
+    },
+    {
+      "name": "FirstSector"
+    },
+    {
+      "name": "SecondSector"
+    },
+    {
+      "name": "ThirdSector"
+    },
+    {
+      "name": "FourthSector"
+    }
+  ],
+  "template": [
+    { "name": "t.html" }
+  ]
+}

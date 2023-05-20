@@ -1,0 +1,69 @@
+<uiView>
+   <div id="suuntoplus">
+      <!-- Topmost: title field -->
+      <div class="cm-fg sp-t-l" style="width:100%;height:31%;text-align:center;">
+         <div style="left:calc(50% - 50%e);width:60%;bottom:40%">Fast Lap</div>
+      </div>
+      <!-- Topmost: title fastLaptAttempt/lapAttempt & fastLapSeconds -->
+      <div class="sp-vertical-center" style="top:15%;left:calc(30% - 50%e);color:#F50">
+         <span class="sp-d-xs f-num">
+            <!-- Eval element is replaced by the value from the input resource from the native duration resource. -->
+            <eval input="/Zapp/{zapp_index}/Output/fastLap" outputFormat="Count_Threedigits" default="--" />/<eval input="/Zapp/{zapp_index}/Output/currentLap" outputFormat="Count_Threedigits" default="--" />
+         </span>
+      </div>      
+      <div class="sp-vertical-center" style="top:15%;left:calc(70% - 50%e);color:#F50">
+         <span class="sp-d-xs f-num">
+            <!-- Eval element is replaced by the value from the input resource from the native duration resource. -->
+            <eval input="/Zapp/{zapp_index}/Output/fastLapDuration" outputFormat="Duration_Training" default="--" />
+         </span>
+      </div>
+      
+      <!-- vertical separator -->
+      <div class="cm-fg p-hc" style="top:33%;width:2px;height:43%;opacity:0.6"></div>
+      <!-- Field just under the title, left side -->
+      <!-- First 100m Time-->
+      <div class="sp-vertical-center" style="top:36%;left:calc(26% - 50%e);">
+         <span class="f-num sp-d-xs">
+            <!-- Eval element is replaced by the value from the input resource from the native duration resource. -->
+            <eval input="/Zapp/{zapp_index}/Output/FirstSector" outputFormat="Duration_Training" default="--" />
+         </span>
+      </div>
+      <div class="cm-mid sp-b-s" style="width:100%;bottom:61%;left:calc(66% - 50%e);">First 100m</div>
+      
+      <!-- Field just under the title, right side -->
+      <!-- Second 100m Time -->
+      <div class="sp-vertical-center" style="top:36%;left:calc(76% - 50%e);">
+         <span class="f-num sp-d-xs">
+            <!-- Eval element is replaced by the value from the input resource from the native duration resource. -->
+            <eval input="/Zapp/{zapp_index}/Output/SecondSector" outputFormat="Duration_Training" default="--" />
+         </span>
+      </div>
+      <div class="cm-mid sp-b-s" style="width:100%;bottom:61%;left:calc(104% - 50%e);">Second 100m</div>
+
+      <!-- middle left side -->
+      <!-- Third 100m Time -->
+      <div class="sp-vertical-center" style="top:57%;left:calc(26% - 50%e);">
+         <span class="f-num sp-d-xs">
+            <!-- Eval element is replaced by the value from the input resource from the native duration resource. -->
+            <eval input="/Zapp/{zapp_index}/Output/ThirdSector" outputFormat="Duration_Training" default="--" />
+         </span>
+      </div>
+      <div class="cm-mid sp-b-s" style="width:100%;bottom:39%;left:calc(64% - 50%e);">Third 100m</div>
+
+      <!-- middle right side -->
+      <!-- Fourth 100m Time -->
+      <div class="sp-vertical-center" style="top:57%;left:calc(76% - 50%e);">
+         <span class="f-num sp-d-xs">
+            <!-- Eval element is replaced by the value from the input resource from the native duration resource. -->
+            <eval input="/Zapp/{zapp_index}/Output/FourthSector" outputFormat="Duration_Training" default="--" />
+         </span>
+      </div>
+      <div class="cm-mid sp-b-s" style="width:100%;bottom:39%;left:calc(104% - 50%e);">Fourth 100m</div>
+
+      <!-- Bottom text area -->
+      <!--  Workout Duration -->
+      <div class="sp-d-s f-d-s f-num p-hc" style="top:calc(84% - 50%e)">
+          <eval input="/Activity/Lap/-1/Duration/Current" outputFormat="Duration_Training" default="--" />
+      </div>
+   </div>
+</uiView>
