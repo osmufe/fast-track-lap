@@ -10,13 +10,23 @@
  function onExercisePause() { trace('--- onExerciseEnd ---'); }
  function onExerciseContinue() { trace('--- onExerciseEnd ---'); }
  */
-var lapTotalDuration;
+var FirstSectorLap, SecondSectorLap, ThirdSectorLap, FourthSectorLap;
 
+function evaluate(input, output) {
+   if (input.Distance == 100) {
+     FirstSectorLap = input.Duration;
 
+   }else if (input.Distance == 200) {
+     SecondSectorLap = FirstSectorLap - input.Duration;
+   
+   }else if (input.Distance == 300) {
+     ThirdSectorLap = FirstSectorLap - SecondSectorLap - input.Duration;
 
-function evaluate(input, output) {    
-   // Trigger lap once
-   //$.put("/Activity/Trigger", 0);
+   }else if (input.Distance == 400) {
+     FourthSectorLap = FirstSectorLap - SecondSectorLap - ThirdSectorLap - input.Duration;
+     // Trigger lap once
+     $.put("/Activity/Trigger", 0);
+   }
 }
  
 function onExerciseStart(input, output) {
@@ -28,20 +38,40 @@ function onExerciseStart(input, output) {
   output.SecondSector = null;
   output.ThirdSector = null;
   output.FourthSector = null;
+  FirstSectorLap = null;
+  SecondSectorLap = null;
+  ThirdSectorLap = null;
+  FourthSectorLap = null;
 }
 
 function onLap(input, output) { 
   if (output.currentLap == 1) {
     output.fastLapDuration = input.Duration;
     output.fastLap = output.currentLap;
+    output.FirstSector = FirstSectorLap;
+    output.SecondSector = SecondSectorLap;
+    output.ThirdSector = ThirdSectorLap;
+    output.FourthSector = FourthSectorLap;
     output.currentLap = output.currentLap + 1;
   }else {
-  // Check Time each sector
     if (input.Duration < output.fastLapDuration) {
       output.fastLapDuration = input.Duration;
       output.fastLap = output.currentLap;
     }
-    output.currentLap = output.currentLap + 1; 
+    if (FirstSectorLap < output.FirstSector) {
+      output.FirstSector = FirstSectorLap;
+    } else if (SecondSectorLap < output.SecondSector){
+      output.SecondSector = SecondSectorLap;
+    } else if (ThirdSectorLap < output.ThirdSector){
+      output.ThirdSector = ThirdSectorLap;
+    } else if (FourthSectorLap < output.FourthSector){
+      output.FourthSector = FourthSectorLap;
+    }
+    output.currentLap = output.currentLap + 1;
+    FirstSectorLap = null;
+    SecondSectorLap = null;
+    ThirdSectorLap = null;
+    FourthSectorLap = null;
   }    
 }
  
