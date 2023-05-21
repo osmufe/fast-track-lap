@@ -8,7 +8,13 @@
       <div class="sp-vertical-center" style="top:15%;left:calc(30% - 50%e);color:#F50">
          <span class="sp-d-xs f-num">
             <!-- Eval element is replaced by the value from the input resource from the native duration resource. -->
-            <eval input="/Zapp/{zapp_index}/Output/fastLap" outputFormat="Count_Threedigits" default="--" />/<eval input="/Zapp/{zapp_index}/Output/currentLap" outputFormat="Count_Threedigits" default="--" />
+            <eval input="/Zapp/{zapp_index}/Output/fastLap" outputFormat="Count_Threedigits" default="--" />
+         </span>
+         <span class="sp-d-xs f-num">
+            /
+         </span>
+         <span class="sp-d-xs f-num">
+            <eval input="/Zapp/{zapp_index}/Output/currentLap" outputFormat="Count_Threedigits" default="--" />
          </span>
       </div>      
       <div class="sp-vertical-center" style="top:15%;left:calc(70% - 50%e);color:#F50">
