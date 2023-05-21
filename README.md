@@ -4,7 +4,7 @@ Suunto App Fast Track Lap 1.0 Version
 This app is designed to 
 
 ### Screen Design:
-<img src="Small.png " width="150" height="150"> <img src="Medium.png " width="150" height="150"> <img src="Medium UI2.png " width="150" height="150"> <img src="Medium UI2 Plus.png " width="150" height="150"> <img src="Large.png " width="150" height="150">
+<img src="Small.png " width="150" height="150"> <img src="Medium.png " width="150" height="150"> <img src="Medium UI2.png " width="150" height="150"> <img src="Medium UI2 Plus.png " width="150" height="150"> <img src="Large UI2.png " width="150" height="150"> <img src="Large.png " width="150" height="150">
 
 <br/>
  
