@@ -2,14 +2,19 @@
   "name": "Fast Track Lap",
   "version": "1.0",
   "author": "Oscar Muñoz Ferriz",
-  "description": "Attempts, Time Spend",
+  "description": "Fast lap track athletics",
   "type": "feature",
   "usage": "workout",
   "modificationTime": 1684534299, 
   "in": [
     {
-      "name": "Duration",
+      "name": "PreviousDuration",
       "source": "/Activity/Lap/-2/Duration/Current",
+      "type": "subscribe"
+    },
+    {
+      "name": "CurrentDuration",
+      "source": "/Activity/Lap/-1/Duration/Current",
       "type": "subscribe"
     },
     {
