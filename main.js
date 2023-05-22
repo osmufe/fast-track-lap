@@ -10,18 +10,19 @@
  function onExercisePause() { trace('--- onExerciseEnd ---'); }
  function onExerciseContinue() { trace('--- onExerciseEnd ---'); }
  */
-var FirstSectorLap, SecondSectorLap, ThirdSectorLap, FourthSectorLap;
+var FirstSectorLap, SecondSectorLap, ThirdSectorLap, FourthSectorLap, LastLapDistance;
 
-function evaluate(input, output) {
-   if (input.Distance == 100) {
+function evaluate(input) {
+   if (((input.Distance - LastLapDistance) >= 99)&&((input.Distance - LastLapDistance)< 104)){
      FirstSectorLap = input.CurrentDuration;
-   }else if (input.Distance == 200) {
+   }else if (((input.Distance - LastLapDistance)>= 199)&&((input.Distance - LastLapDistance)< 204)){
      SecondSectorLap = input.CurrentDuration - FirstSectorLap;
-   }else if (input.Distance == 300) {
+   }else if (((input.Distance - LastLapDistance)>= 299)&&((input.Distance - LastLapDistance)< 304)){
      ThirdSectorLap = input.CurrentDuration - (FirstSectorLap + SecondSectorLap ) ;
-   }else if (input.Distance == 400) {
+   }else if (((input.Distance - LastLapDistance)>= 399)&&((input.Distance - LastLapDistance)< 404)){
      FourthSectorLap = input.CurrentDuration - (FirstSectorLap + SecondSectorLap + ThirdSectorLap);
      // Trigger lap once
+     LastLapDistance = input.Distance;
      $.put("/Activity/Trigger", 0);
    }
 }
@@ -29,6 +30,7 @@ function evaluate(input, output) {
 function onExerciseStart(input, output) {
   // Initializing Variables
   output.currentLap = 1;
+  LastLapDistance = 0;
   output.fastLap = null;
   output.fastLapDuration = null;
   output.FirstSector = null;
@@ -41,7 +43,7 @@ function onExerciseStart(input, output) {
   FourthSectorLap = null;
 }
 
-function onLap(input, output) { 
+function onLap(input, output) {
   if (output.currentLap == 1) {
     output.fastLapDuration = input.PreviousDuration;
     output.fastLap = output.currentLap;
@@ -49,7 +51,6 @@ function onLap(input, output) {
     output.SecondSector = SecondSectorLap;
     output.ThirdSector = ThirdSectorLap;
     output.FourthSector = FourthSectorLap;
-    output.currentLap = output.currentLap + 1;
   }else {
     if (input.PreviousDuration < output.fastLapDuration) {
       output.fastLapDuration = input.PreviousDuration;
@@ -57,19 +58,22 @@ function onLap(input, output) {
     }
     if (FirstSectorLap < output.FirstSector) {
       output.FirstSector = FirstSectorLap;
-    } else if (SecondSectorLap < output.SecondSector){
+    }
+    if (SecondSectorLap < output.SecondSector){
       output.SecondSector = SecondSectorLap;
-    } else if (ThirdSectorLap < output.ThirdSector){
+    }
+    if (ThirdSectorLap < output.ThirdSector){
       output.ThirdSector = ThirdSectorLap;
-    } else if (FourthSectorLap < output.FourthSector){
+    }
+    if (FourthSectorLap < output.FourthSector){
       output.FourthSector = FourthSectorLap;
     }
-    output.currentLap = output.currentLap + 1;
-    FirstSectorLap = null;
-    SecondSectorLap = null;
-    ThirdSectorLap = null;
-    FourthSectorLap = null;
-  }    
+  }
+  output.currentLap = output.currentLap + 1;
+  FirstSectorLap = null;
+  SecondSectorLap = null;
+  ThirdSectorLap = null;
+  FourthSectorLap = null;
 }
  
  function getUserInterface(input, output) {
