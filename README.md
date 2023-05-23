@@ -1,7 +1,7 @@
 # Fast Track Lap
 Suunto App Fast Track Lap 1.0 Version
 
-This app is designed to work on a running track. It tells you how many laps you are doing and which of them has been the fastest. After every 100 meters until you reach 400 meters it calculates the fastest sectors and which lap of each sector has been the fastest.
+This app is designed to work on a running track. It tells you how many laps you are doing and which of them has been the fastest. After every 100 meters until you reach 400 meters it calculates the fastest sectors and which lap of each sector has been the fastest. Automatically launches the Lap when it reaches 400 Meters.
 
 ### Distances of an athletics track:
 - Track1 : 400 Meters **(Implemented)**
@@ -17,15 +17,6 @@ This app is designed to work on a running track. It tells you how many laps you 
 <img src="Small.png " width="150" height="150"> <img src="Medium.png " width="150" height="150"> <img src="Medium UI2.png " width="150" height="150"> <img src="Medium UI2 Plus.png " width="150" height="150"> <img src="Large UI2.png " width="150" height="150"> <img src="Large.png " width="150" height="150">
 
 <br/>
- 
-### SA Outputs:
-  #### Suunto Plus Metrics to analize later in SA
-  <img src="SuuntoPlusMetric.jpg" width="35%" height="35%">
-   <br/>
-   
-  #### SA Summary Outputs
-  <img src="SA_Metrics.jpg" width="35%" height="35%">
-   <br/>
 
 ## I will Try to do it if possible:
   - Now only work with Track1 400 Meters, in the future the Suunto Plus Editor can configure inputs from the watch to choose for example other type of Track: <br/>
