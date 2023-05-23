@@ -19,7 +19,7 @@
     },
     {
       "name": "Distance",
-      "source": "/Activity/Lap/-1/Distance/Current",
+      "source": "/Activity/Move/-1/Distance/Current",
       "type": "subscribe"
     }
   ],
@@ -29,6 +29,18 @@
     },
     {
       "name": "fastLap"
+    },
+    {
+      "name": "fastLapOneHundred"
+    },
+    {
+      "name": "fastLapTwoHundred"
+    },
+    {
+      "name": "fastLapThreeHundred"
+    },
+    {
+      "name": "fastLapFourHundred"
     },
     {
       "name": "fastLapDuration"

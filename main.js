@@ -41,12 +41,20 @@ function onExerciseStart(input, output) {
   SecondSectorLap = null;
   ThirdSectorLap = null;
   FourthSectorLap = null;
+  output.fastLapOneHundred = null;
+  output.fastLapTwoHundred = null;
+  output.fastLapThreeHundred = null;
+  output.fastLapFourHundred = null;
 }
 
 function onLap(input, output) {
   if (output.currentLap == 1) {
     output.fastLapDuration = input.PreviousDuration;
     output.fastLap = output.currentLap;
+    output.fastLapOneHundred = output.currentLap;
+    output.fastLapTwoHundred = output.currentLap;
+    output.fastLapThreeHundred = output.currentLap;
+    output.fastLapFourHundred = output.currentLap;
     output.FirstSector = FirstSectorLap;
     output.SecondSector = SecondSectorLap;
     output.ThirdSector = ThirdSectorLap;
@@ -58,15 +66,19 @@ function onLap(input, output) {
     }
     if (FirstSectorLap < output.FirstSector) {
       output.FirstSector = FirstSectorLap;
+      output.fastLapOneHundred = output.currentLap;
     }
     if (SecondSectorLap < output.SecondSector){
       output.SecondSector = SecondSectorLap;
+      output.fastLapTwoHundred = output.currentLap;
     }
     if (ThirdSectorLap < output.ThirdSector){
       output.ThirdSector = ThirdSectorLap;
+      output.fastLapThreeHundred = output.currentLap;
     }
     if (FourthSectorLap < output.FourthSector){
       output.FourthSector = FourthSectorLap;
+      output.fastLapFourHundred = output.currentLap;
     }
   }
   output.currentLap = output.currentLap + 1;
