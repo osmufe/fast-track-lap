@@ -5,7 +5,7 @@
   "description": "Fast lap track athletics",
   "type": "feature",
   "usage": "workout",
-  "modificationTime": 1684534299, 
+  "modificationTime": 1684830605, 
   "in": [
     {
       "name": "PreviousDuration",

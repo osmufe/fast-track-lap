@@ -100,7 +100,6 @@ function onLap(input, output) {
  function getSummaryOutputs(input, output) {
    return [
      {
-
      },
    ];
  }
